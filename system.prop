@@ -1,2 +1,5 @@
 # WiFi
 wifi.interface=wlan0
+
+# Camera
+camera2.portability.force_api=1
