@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2
 
+# MSM IPC Router security configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974 \
