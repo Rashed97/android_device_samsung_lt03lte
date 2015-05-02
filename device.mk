@@ -51,6 +51,18 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.fluencetype=fluence \
+    persist.audio.fluence.voicecall=true \
+    af.resampler.quality=4 \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=true \
+    use.voice.path.for.pcm.voip=true \
+    av.offload.enable=false \
+    av.streaming.offload.enable=false \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.multiple.enabled=false
+
 # MSM IPC Router security configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
