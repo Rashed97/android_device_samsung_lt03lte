@@ -83,8 +83,8 @@ PRODUCT_PACKAGES += \
     libloc_core
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/etc/gps.conf:/system/etc/gps.conf \
-    $(LOCAL_PATH)/gps/etc/sap.conf:/system/etc/sap.conf
+    $(LOCAL_PATH)/configs/gps.conf:/system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/sap.conf:/system/etc/sap.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=0 \
