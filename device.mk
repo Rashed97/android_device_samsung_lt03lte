@@ -129,7 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libargs=-d /dev/smd0 \
     rild.libpath=/system/lib/libsec-ril.so \
     ro.ril.telephony.mqanelements=6 \
-    ro.telephony.ril_class=lt03lteRIL
+    ro.telephony.ril_class=SamsungLteRIL
 
 # Ramdisk
 PRODUCT_PACKAGES += \
