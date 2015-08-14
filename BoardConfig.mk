@@ -127,4 +127,4 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Ril
-BOARD_RIL_CLASS := ../../../device/samsung/lt03lte/ril
+#BOARD_RIL_CLASS := ../../../device/samsung/lt03lte/ril

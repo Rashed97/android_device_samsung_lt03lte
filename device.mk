@@ -128,10 +128,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.mode_pref_nv10=1 \
     rild.libargs=-d /dev/smd0 \
     rild.libpath=/system/lib/libsec-ril.so \
-    ro.ril.telephony.mqanelements=6 \
-    ro.telephony.ril_class=SamsungLteRIL \
-    telephony.lteOnGSMDevice=1 \
-    ro.telephony.default_network=9
+    ro.ril.telephony.mqanelements=6
+#    ro.telephony.ril_class=SamsungLteRIL \
+#    telephony.lteOnGSMDevice=1 \
+#    ro.telephony.default_network=9
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -164,7 +164,6 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
-
 
 RODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
