@@ -1,4 +1,4 @@
-/* Copyright (c) 2009,2011 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009,2011,2014 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -27,21 +27,25 @@
  *
  */
 
-#ifndef LOC_ENG_XTRA_H
-#define LOC_ENG_XTRA_H
+#ifndef LOC_ENG_NI_H
+#define LOC_ENG_NI_H
 
-#include "hardware/gps.h"
+#include <stdbool.h>
 
-// Module data
-typedef struct
-{
-   // loc_eng_ioctl_cb_data_s_type   ioctl_cb_data;
-   gps_xtra_download_request      download_request_cb;
-   report_xtra_server             report_xtra_server_cb;
+#define LOC_NI_NO_RESPONSE_TIME            20                      /* secs */
+#define LOC_NI_NOTIF_KEY_ADDRESS           "Address"
+#define GPS_NI_RESPONSE_IGNORE             4
 
-   // XTRA data buffer
-   char                          *xtra_data_for_injection;  // NULL if no pending data
-   int                            xtra_data_len;
-} loc_eng_xtra_data_s_type;
+typedef struct {
+    pthread_t               thread;            /* NI thread */
+    int                     respTimeLeft;       /* examine time for NI response */
+    bool                    respRecvd;   /* NI User reponse received or not from Java layer*/
+    void*                   rawRequest;
+    int                     reqID;         /* ID to check against response */
+    GpsUserResponseType     resp;
+    pthread_cond_t          tCond;
+    pthread_mutex_t         tLock;
+} loc_eng_ni_data_s_type;
 
-#endif // LOC_ENG_XTRA_H
+
+#endif /* LOC_ENG_NI_H */
