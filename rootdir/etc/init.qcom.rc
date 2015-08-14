@@ -172,15 +172,11 @@ on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
-<<<<<<< HEAD
 
 # we will remap this as /storage/container with the sdcard fuse tool
     mkdir /data/container 0770 system system
     chown system system /data/container
 
-=======
-    
->>>>>>> f1ff94c... hlte-common: use config based tcp buffer sizes
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
@@ -247,6 +243,28 @@ on post-fs-data
 
     chmod 666 /sys/class/camera/flash/rear_flash
     chown system camera /sys/class/camera/flash/rear_flash
+    
+    chmod 0660 /sys/class/leds/torch-sec1/brightness
+    chown system camera /sys/class/leds/torch-sec1/brightness
+ 
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
+
+    # Vibrator
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
+    chown root system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_max
+    chown root system /sys/class/timed_output/vibrator/pwm_max
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_min
+    chown root system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_default
+    chown root system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_threshold
+    chown root system /sys/class/timed_output/vibrator/pwm_threshold
+
+    # Display calibration
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
 
 # permission for Input Device(Touchkey).
     chmod 0660 /sys/class/input/input2/enabled
