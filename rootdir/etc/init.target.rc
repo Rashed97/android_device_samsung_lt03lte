@@ -217,12 +217,12 @@ on boot
     chown system system  /sys/class/mdnie/mdnie/bypass
 
     chown system system /sys/class/lcd/panel/window_type
-    chown radio system /sys/class/lcd/panel/power_reduce
-    chown radio system /sys/class/lcd/panel/siop_enable
-    chown radio system /sys/class/lcd/panel/temperature
-    chown radio system /sys/class/lcd/panel/tuning
+    chown system system /sys/class/lcd/panel/power_reduce
+    chown system system /sys/class/lcd/panel/siop_enable
+    chown system system /sys/class/lcd/panel/temperature
+    chown system system /sys/class/lcd/panel/tuning
 
-    chown radio system /sys/class/lcd/panel/partial_disp
+    chown system system /sys/class/lcd/panel/partial_disp
     chmod 0660 /sys/class/lcd/panel/partial_disp
 
 
@@ -276,12 +276,12 @@ on boot
     chown system system /sys/class/sec/sec_touchkey/brightness
 
 # Permissions for Camera
-   chown system radio /sys/class/camera/rear/rear_camfw
-   chown system radio /sys/class/camera/rear/rear_camfw_load
-   chown system radio /sys/class/camera/rear/rear_camtype
-   chown system radio /sys/class/camera/flash/rear_flash
-   chown system radio /sys/class/camera/front/front_camfw
-   chown system radio /sys/class/camera/front/front_camtype
+    chown system radio /sys/class/camera/rear/rear_camfw
+    chown system radio /sys/class/camera/rear/rear_camfw_load
+    chown system radio /sys/class/camera/rear/rear_camtype
+    chown system radio /sys/class/camera/flash/rear_flash
+    chown system radio /sys/class/camera/front/front_camfw
+    chown system radio /sys/class/camera/front/front_camtype
 
     #OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
@@ -315,8 +315,8 @@ on boot
     chown root radio /proc/cmdline
 
 # Permissions for Audio
-   chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_grammar_path
-   chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_net_path
+    chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_grammar_path
+    chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_net_path
 
 # Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
@@ -464,7 +464,6 @@ on boot
     chown nfc nfc /data/nfc
     chown nfc nfc /data/nfc/param
 
-
 # IR_LED
     chown system radio /sys/class/sec/sec_ir/ir_send
     chown system radio /sys/class/sec/sec_ir/ir_send_result
@@ -504,27 +503,24 @@ on boot
     chown system radio /sys/devices/virtual/sec/bamdmux/waketime
 
 # Permissions for gpio_keys
-    chown system radio /sys/class/sec/sec_key/wakeup_keys
+    chown system system /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
-    # Vibetonz
-    chmod 0660 /dev/tspdrv
-    chown root shell /dev/tspdrv
-	chown system system /sys/class/timed_output/vibrator/pwm_value
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    # Vibrator
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_max
     chown system system /sys/class/timed_output/vibrator/pwm_max
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_max
-	chown system system /sys/class/timed_output/vibrator/pwm_min
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_min
-	chown system system /sys/class/timed_output/vibrator/pwm_default
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_default
-	chown system system /sys/class/timed_output/vibrator/pwm_threshold
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_threshold
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
 
     # Panel color temperature
     chmod 0660 /sys/class/lcd/panel/panel_colors
     chown system system /sys/class/lcd/panel/panel_colors
-
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1

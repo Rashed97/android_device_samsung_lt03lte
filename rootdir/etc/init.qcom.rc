@@ -159,6 +159,116 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet_usb2/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
 
+    # leds
+    chown system system  /sys/class/sec/sec_touchkey/brightness
+    chown system system  /sys/class/sec/sec_touchkey/max_brightness
+
+    chown system system  /sys/class/leds/led:rgb_green/brightness
+    chown system system  /sys/class/leds/led:rgb_blue/brightness
+
+    chown system system  /sys/class/leds/led:rgb_green/blink
+    chown system system  /sys/class/leds/led:rgb_blue/blink
+
+    chown system camera /sys/class/camera/flash/rear_flash
+
+    # IR_LED
+    chown system radio /sys/class/sec/sec_ir/ir_send
+    chown system radio /sys/class/sec/sec_ir/ir_send_result
+
+    # Permissions for Barcode Emul
+    chown system radio /sys/class/sec/sec_barcode_emul/barcode_send
+    chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
+    chown system radio /sys/class/sec/sec_barcode_emul/barcode_led_status
+    
+    chown system system /sys/class/input/input0/enabled
+    chmod 0660 /sys/class/input/input0/enabled
+    chown system system /sys/class/input/input1/enabled
+    chmod 0660 /sys/class/input/input1/enabled
+    chown system system /sys/class/input/input2/enabled
+    chmod 0660 /sys/class/input/input2/enabled
+    chown system system /sys/class/input/input3/enabled
+    chmod 0660 /sys/class/input/input3/enabled
+    chown system system /sys/class/input/input4/enabled
+    chmod 0660 /sys/class/input/input4/enabled
+    chown system system /sys/class/input/input5/enabled
+    chmod 0660 /sys/class/input/input5/enabled
+    chown system system /sys/class/input/input6/enabled
+    chmod 0660 /sys/class/input/input6/enabled
+    chown system system /sys/class/input/input7/enabled
+    chmod 0660 /sys/class/input/input7/enabled
+    chown system system /sys/class/input/input8/enabled
+    chmod 0660 /sys/class/input/input8/enabled
+    chown system system /sys/class/input/input9/enabled
+    chmod 0660 /sys/class/input/input9/enabled
+
+    # For disabling softkeys *FIXME*
+    chown system system  /sys/class/sec/sec_touchkey/brightness
+    chmod 0664  /sys/class/sec/sec_touchkey/brightness
+    chown system system  /sys/class/sec/sec_touchkey/max_brightness
+    chmod 0664  /sys/class/sec/sec_touchkey/max_brightness
+
+    chown system system  /sys/class/leds/led:rgb_green/brightness
+    chmod 0664  /sys/class/leds/led:rgb_green/brightness
+    chown system system  /sys/class/leds/led:rgb_blue/brightness
+    chmod 0664  /sys/class/leds/led:rgb_blue/brightness
+
+    chown system system  /sys/class/leds/led:rgb_green/blink
+    chmod 0664  /sys/class/leds/led:rgb_green/blink
+    chown system system  /sys/class/leds/led:rgb_blue/blink
+    chmod 0664  /sys/class/leds/led:rgb_blue/blink
+
+    chmod 666 /sys/class/camera/flash/rear_flash
+    chown system camera /sys/class/camera/flash/rear_flash
+    
+    chmod 0660 /sys/class/leds/torch-sec1/brightness
+    chown system camera /sys/class/leds/torch-sec1/brightness
+ 
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
+
+    # Vibrator
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_max
+    chown system system /sys/class/timed_output/vibrator/pwm_max
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_threshold
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
+
+    # Display calibration
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+
+    # permission for Input Device(Touchkey).
+    chmod 0660 /sys/class/input/input2/enabled
+    chown system system /sys/class/input/input2/enabled
+    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
+    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
+    chown system radio /sys/class/sec/sec_touchkey/glove_mode
+    chown system radio /sys/class/sec/sec_touchkey/flip_mode
+    chown system radio /sys/class/sec/sec_touchkey/boost_level
+
+    # permission for Input Device(Wacom).
+    chmod 0660 /sys/class/input/input4/enabled
+    chown system system /sys/class/input/input4/enabled
+    chown system system /sys/class/input/input18/enabled
+
+    # permissions for S-Pen
+    chmod 0660 /sys/class/input/input3/enabled
+    chown system system /sys/class/input/input3/enabled
+    chown system radio /sys/class/sec/sec_epen/epen_firm_update
+    chown system radio /sys/class/sec/sec_epen/epen_rotation
+    chown system radio /sys/class/sec/sec_epen/epen_hand
+    chown system radio /sys/class/sec/sec_epen/epen_reset
+    chown system radio /sys/class/sec/sec_epen/epen_reset_result
+    chown system radio /sys/class/sec/sec_epen/epen_checksum
+    chown system radio /sys/class/sec/sec_epen/epen_checksum_result
+    chown system radio /sys/class/sec/sec_epen/epen_saving_mode
+    chown system radio /sys/class/sec/sec_epen/boost_level
+
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
     # the connection they belong to.
@@ -225,74 +335,6 @@ on post-fs-data
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
 
-    # For disabling softkeys *FIXME*
-    chown root system  /sys/class/sec/sec_touchkey/brightness
-    chmod 0664  /sys/class/sec/sec_touchkey/brightness
-    chown root system  /sys/class/sec/sec_touchkey/max_brightness
-    chmod 0664  /sys/class/sec/sec_touchkey/max_brightness
-
-    chown root system  /sys/class/leds/led:rgb_green/brightness
-    chmod 0664  /sys/class/leds/led:rgb_green/brightness
-    chown root system  /sys/class/leds/led:rgb_blue/brightness
-    chmod 0664  /sys/class/leds/led:rgb_blue/brightness
-
-    chown root system  /sys/class/leds/led:rgb_green/blink
-    chmod 0664  /sys/class/leds/led:rgb_green/blink
-    chown root system  /sys/class/leds/led:rgb_blue/blink
-    chmod 0664  /sys/class/leds/led:rgb_blue/blink
-
-    chmod 666 /sys/class/camera/flash/rear_flash
-    chown system camera /sys/class/camera/flash/rear_flash
-    
-    chmod 0660 /sys/class/leds/torch-sec1/brightness
-    chown system camera /sys/class/leds/torch-sec1/brightness
- 
-    chown system system /sys/class/sec/sec_touchkey/keypad_enable
-    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
-
-    # Vibrator
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
-    chown root system /sys/class/timed_output/vibrator/pwm_value
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_max
-    chown root system /sys/class/timed_output/vibrator/pwm_max
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_min
-    chown root system /sys/class/timed_output/vibrator/pwm_min
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_default
-    chown root system /sys/class/timed_output/vibrator/pwm_default
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_threshold
-    chown root system /sys/class/timed_output/vibrator/pwm_threshold
-
-    # Display calibration
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
-
-# permission for Input Device(Touchkey).
-    chmod 0660 /sys/class/input/input2/enabled
-    chown system system /sys/class/input/input2/enabled
-    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
-    chown system radio /sys/class/sec/sec_touchkey/glove_mode
-    chown system radio /sys/class/sec/sec_touchkey/flip_mode
-    chown system radio /sys/class/sec/sec_touchkey/boost_level
-
-# permission for Input Device(Wacom).
-    chmod 0660 /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input18/enabled
-
-# permissions for S-Pen
-    chmod 0660 /sys/class/input/input3/enabled
-    chown system system /sys/class/input/input3/enabled
-    chown system radio /sys/class/sec/sec_epen/epen_firm_update
-    chown system radio /sys/class/sec/sec_epen/epen_rotation
-    chown system radio /sys/class/sec/sec_epen/epen_hand
-    chown system radio /sys/class/sec/sec_epen/epen_reset
-    chown system radio /sys/class/sec/sec_epen/epen_reset_result
-    chown system radio /sys/class/sec/sec_epen/epen_checksum
-    chown system radio /sys/class/sec/sec_epen/epen_checksum_result
-    chown system radio /sys/class/sec/sec_epen/epen_saving_mode
-    chown system radio /sys/class/sec/sec_epen/boost_level
-
 # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
     chown bluetooth net_bt_stack ro.bt.bdaddr_path
@@ -352,7 +394,8 @@ on post-fs-data
     mkdir /data/hostapd 0770 system wifi
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
+    mkdir /data/time 0700 system system
+    mkdir /data/system/time 0700 system system
 
     mkdir /data/audio/ 0770 media audio
     # Enable the setgid bit on the directory

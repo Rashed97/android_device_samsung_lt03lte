@@ -63,7 +63,7 @@ TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CMHW
-BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 BOARD_HARDWARE_CLASS += device/samsung/lt03lte/cmhw
 
 # Graphics
