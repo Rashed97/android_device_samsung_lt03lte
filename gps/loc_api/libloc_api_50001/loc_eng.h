@@ -148,6 +148,11 @@ typedef struct loc_gps_cfg_s
     unsigned long  A_GLONASS_POS_PROTOCOL_SELECT;
 } loc_gps_cfg_s_type;
 
+typedef struct loc_sec_gps_cfg_s
+{
+    unsigned long  INTERMEDIATE_POS;
+} loc_sec_gps_cfg_s_type;
+
 typedef struct
 {
     uint8_t        GYRO_BIAS_RANDOM_WALK_VALID;
@@ -171,10 +176,10 @@ typedef struct
     double         RATE_RANDOM_WALK_SPECTRAL_DENSITY;
     uint8_t        VELOCITY_RANDOM_WALK_SPECTRAL_DENSITY_VALID;
     double         VELOCITY_RANDOM_WALK_SPECTRAL_DENSITY;
-    unsigned long  SENSOR_PROVIDER;
 } loc_sap_cfg_s_type;
 
 extern loc_gps_cfg_s_type gps_conf;
+extern loc_sec_gps_cfg_s_type sec_gps_conf;
 extern loc_sap_cfg_s_type sap_conf;
 
 int  loc_eng_init(loc_eng_data_s_type &loc_eng_data,
