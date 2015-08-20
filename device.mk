@@ -84,7 +84,8 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8974
+    gps.msm8974 \
+    libloc_core
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
